@@ -1,7 +1,11 @@
+package driver;
+
+import driver.Option;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import datastructures.list.LinkedList;
+import words.Corpus;
 
 
 /**
@@ -95,6 +99,13 @@ import datastructures.list.LinkedList;
        System.exit(1);
      }
 
+     //Added by Alex
+     for(Object n : corpus.collection.getKeys()) {
+         @SuppressWarnings("ignored")
+         String key = (String) n;
+         
+         System.out.println(key);
+     }
 
      // Allow the user to get recommendations from the corpus.
      System.out.println("To quit interaction, type .quit at the prompt.");
