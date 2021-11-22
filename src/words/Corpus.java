@@ -73,7 +73,7 @@ public class Corpus {
                         
             double similarity = comparitiveWordBag.getSimilarity(bag);
             
-            //System.out.println(similarity);
+            System.out.println(similarity + " " + bag);
             
             //Option from the similarities of the two bags
             Option option = new Option(key, similarity);
@@ -81,7 +81,7 @@ public class Corpus {
             bst.add(option);
         }
                        
-        //System.out.println(bst.getNumberOfNodes() + " " + collection.getSize() + " " + i);
+        System.out.println(bst.getNumberOfNodes() + " " + collection.getSize() + " " + i);
         
         //LinkedList of options that are sorted from bst and truncated by-k
         LinkedList<Option> truncated = bst.sort();
