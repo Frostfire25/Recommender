@@ -58,7 +58,7 @@ public class WordBag {
                     String word = m.toLowerCase();
                     
                     //Removes all white space and punctuation
-                    word = word.replaceAll("\\W+",""); //QUESTION! ask if \\W removes all whitespace and punctuation
+                    word = word.replaceAll("\\s+",""); //QUESTION! ask if \\W removes all whitespace and punctuation
                     
                     //If wordVec already contains Key(m) then we increase the count by one
                     if(wordVec.contains(word)) {
