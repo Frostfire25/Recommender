@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Stores a Bag of Words
@@ -118,6 +119,48 @@ public class WordBag {
     @Override
     public String toString() {
         return String.format("%s Lines, %s words, %s unique words.", this.totalLines, this.totalWords, this.uniqueWords);
+    }
+    
+    /*
+    Add a method applyTFIDF that takes a LinkedDictionary with keys that are
+    String and values that are Doubles called idf. For each word w in the bag’s
+    wordVec update the value to be f
+    D
+    idf (w) where D is the number of words in the
+
+    document and idf (w) is the IDF value associated with word w.
+    */
+    
+    /**
+     * Gets a List of Words fro the WordBag
+     * @return ArrayList<String> all keys from wordVec
+     */
+    public ArrayList<String> getWords() {
+        ArrayList<String> words = new ArrayList<>();
+        
+        //Adds all Keys from wordVen to words
+        for(Object n : wordVec.getKeys()) {
+            
+            @SuppressWarnings("ignored")
+            String word = (String) n;
+            
+            words.add(word);
+        }
+        
+        return words;
+    }
+    
+    /**
+     * Applies each word in wordVec with it's TFIDF
+     * 
+     * @param tFIDF LinkedDictionary<String, Double> where String is a Word and the Double is it's IDF value
+     */
+    public void applyTFIDF(LinkedDictionary<String, Double> tFIDF) {
+        //Applies each word in wordVec with the appropriet TFIDF
+        getWords().stream().forEach(key -> {
+            if(tFIDF.contains(key))
+              wordVec.add(key, (wordVec.getValue(key)/totalWords)*tFIDF.getValue(key));
+        });
     }
     
     /*

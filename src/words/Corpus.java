@@ -13,9 +13,11 @@ import java.io.FileNotFoundException;
 public class Corpus {
     
     public LinkedDictionary<String, WordBag> collection;
+    private LinkedDictionary<String, Integer> doqFrequency;
     
     public Corpus() {
         this.collection = new LinkedDictionary<>();
+        this.doqFrequency = new LinkedDictionary<>();
     }
     
     /**
@@ -37,6 +39,9 @@ public class Corpus {
         
         //Adds wordBag to collection
         collection.add(label.toLowerCase(), wordBag);
+        
+        //Updates doqFrequency
+        wordBag.getWords().stream().forEach(word -> doqFrequency.add(word, doqFrequency.contains(word) ? doqFrequency.getValue(word)+1 : 1));
     }
     
     /**
@@ -89,6 +94,32 @@ public class Corpus {
         
         //returns truncated
         return truncated;
+    }
+    
+    /**
+     * Applies IDF onto each WordBag
+     */
+    public void applyTFIDF() {
+        LinkedDictionary<String, Double> idf = new LinkedDictionary<>();
+        
+        //Iterates through each Word in doqFrequency and adds it to idf
+        for(Object n : doqFrequency.getKeys()) {
+            
+            @SuppressWarnings("ignored")
+            String word = (String) n;
+            
+            //Need to check math here
+            idf.add(word, 1 + Math.log(doqFrequency.getValue(word))/(1+doqFrequency.getValue(word)));
+        }
+        
+        //Applies the IDF on each WordBag
+        for(Object n : collection.getKeys()) {
+            
+            @SuppressWarnings("ignored")
+            String title = (String) n;
+            
+            collection.getValue(title).applyTFIDF(idf);
+        }
     }
     
 }

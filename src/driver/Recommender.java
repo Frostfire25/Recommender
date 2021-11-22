@@ -40,7 +40,7 @@ import words.Corpus;
        corpus.addDocument(entry[0], entry[1]);
      }
 
-     //corpus.applyTFIDF(); // Use TF-IDF to improve results.
+     corpus.applyTFIDF(); // Use TF-IDF to improve results.
 
      return corpus;
    }
