@@ -1,3 +1,4 @@
+package driver;
 
 import datastructures.dictionary.LinkedDictionary;
 
@@ -64,4 +65,6 @@ public class Test {
         }
         
         System.out.println("Load Factor " + dictionary.getLoadFactor() + " " + dictionary.table.length);
-        
+        */
+    }
+}

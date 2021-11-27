@@ -263,9 +263,7 @@ import java.util.Arrays;
         if(loadFactor > 0.5 || loadFactor < 0.25) {            
             //New table that we will hash entries to.
             Entry<K,V>[] tempTable = (loadFactor > 0.5) ? new Entry[table.length*2] : new Entry[table.length/2];
-            
-            System.out.println(""+ table.length*2 +" here " + numEntries);
-            
+                        
             // Walker Entry
             Entry<K, V> walker;
             // Loops through every Entry in the table

@@ -1,3 +1,5 @@
+package driver;
+
 /**
  * Represents a title with its similarity
  * @author Zach Kissel
