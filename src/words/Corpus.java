@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
  */
 public class Corpus {
     
-    public LinkedDictionary<String, WordBag> collection;
+    private LinkedDictionary<String, WordBag> collection;
     private LinkedDictionary<String, Integer> doqFrequency;
     
     public Corpus() {
@@ -77,17 +77,13 @@ public class Corpus {
             WordBag bag = collection.getValue(key);
                         
             double similarity = comparitiveWordBag.getSimilarity(bag);
-            
-            System.out.println(similarity + " " + bag);
-            
+                        
             //Option from the similarities of the two bags
-            Option option = new Option(key, similarity);
+            Option option = new Option(key, (100-similarity));
             
             bst.add(option);
         }
-                       
-        System.out.println(bst.getNumberOfNodes() + " " + collection.getSize() + " " + i);
-        
+                               
         //LinkedList of options that are sorted from bst and truncated by-k
         LinkedList<Option> truncated = bst.sort();
         truncated.truncate(k);
@@ -109,7 +105,7 @@ public class Corpus {
             String word = (String) n;
             
             //Need to check math here
-            idf.add(word, 1 + Math.log(doqFrequency.getValue(word))/(1+doqFrequency.getValue(word)));
+            idf.add(word, 1 + Math.log( collection.getSize()/ (1+doqFrequency.getValue(word)) ));
         }
         
         //Applies the IDF on each WordBag

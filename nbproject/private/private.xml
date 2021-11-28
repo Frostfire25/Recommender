@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/my3ki/Dropbox/My%20PC%20(DESKTOP-8IUO82S)/Documents/NetBeansProjects/elguezabal6/src/Option.java</file>
-            <file>file:/C:/Users/my3ki/Dropbox/My%20PC%20(DESKTOP-8IUO82S)/Documents/NetBeansProjects/elguezabal6/src/Recommender.java</file>
+            <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/words/Corpus.java</file>
+            <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/driver/Test.java</file>
+            <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/words/WordBag.java</file>
+            <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/driver/Recommender.java</file>
+            <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/driver/Option.java</file>
         </group>
     </open-files>
 </project-private>

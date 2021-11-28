@@ -93,11 +93,17 @@ public class WordBag {
      * 
      * @return Theta (degree) of similarty between two word bags
     */
-    public double getSimilarity(WordBag wordBag) {
-        LinkedDictionary<String, Double> largerBag = (wordVec.getSize() > wordBag.wordVec.getSize()) ? wordVec : wordBag.wordVec;
-        LinkedDictionary<String, Double> smallerBag = (wordVec.getSize() < wordBag.wordVec.getSize()) ? wordVec : wordBag.wordVec;
-
-        return Math.acos((computeDotProduct(largerBag, smallerBag) / computeEuclideanNorm(largerBag, smallerBag)));
+    public double getSimilarity(WordBag wordBag) {        
+        LinkedDictionary<String, Double> smallerBag = (wordVec.getSize() > wordBag.wordVec.getSize()) ? wordVec : wordBag.wordVec;
+        LinkedDictionary<String, Double> largerBag = (wordVec.getSize() < wordBag.wordVec.getSize()) ? wordVec : wordBag.wordVec;
+        
+        //If the sizes are equal we set the values
+        if(wordVec.getSize() == wordBag.wordVec.getSize()) {
+            smallerBag = wordBag.wordVec;
+            largerBag = wordVec;
+        }
+ 
+        return Math.toDegrees(Math.acos((computeDotProduct(largerBag, smallerBag) / computeEuclideanNorm(largerBag, smallerBag))));
     }
     
    
@@ -124,16 +130,6 @@ public class WordBag {
     public String toString() {
         return String.format("%s Lines, %s words, %s unique words.", this.totalLines, this.totalWords, this.uniqueWords);
     }
-    
-    /*
-    Add a method applyTFIDF that takes a LinkedDictionary with keys that are
-    String and values that are Doubles called idf. For each word w in the bag’s
-    wordVec update the value to be f
-    D
-    idf (w) where D is the number of words in the
-
-    document and idf (w) is the IDF value associated with word w.
-    */
     
     /**
      * Gets a List of Words fro the WordBag
@@ -240,6 +236,6 @@ public class WordBag {
             v2 += (Math.pow(bag2.getValue(key), 2));
         }
        
-       return Math.abs(Math.sqrt(v1)) * Math.abs(Math.sqrt(v2));
+       return Math.sqrt(v1 * v2);
    }
 }

@@ -1,6 +1,5 @@
 package driver;
 
-import driver.Option;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -97,14 +96,6 @@ import words.Corpus;
        System.out.println("Error: " + collection + " not found.");
        ex.printStackTrace();
        System.exit(1);
-     }
-
-     //Added by Alex
-     for(Object n : corpus.collection.getKeys()) {
-         @SuppressWarnings("ignored")
-         String key = (String) n;
-         
-         System.out.println(key);
      }
 
      // Allow the user to get recommendations from the corpus.

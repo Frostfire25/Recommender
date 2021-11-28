@@ -84,9 +84,7 @@ import java.util.Arrays;
    {
      Entry<K, V> entry;
      Entry<K, V> tmp;
-     
-     System.out.println(Arrays.toString(table) + "   " +  getHashIndex(key) + " " + table[getHashIndex(key)]);
-     
+          
      //If the table[i] value is the key 
      if(table[getHashIndex(key)].getKey().equals(key)) {
          //Assigns key

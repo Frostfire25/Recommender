@@ -1,6 +1,7 @@
 package datastructures.list;
 
 import datastructures.Node;
+import java.util.Arrays;
 
 /**
  * An implementation of a generic singly linked list.
@@ -240,12 +241,13 @@ import datastructures.Node;
     * @param newLength the new length of the list.
     */
    public void truncate(int newLength)
-   {
+   {       
      if (newLength == 0)
       this.clear();
+     
      if (newLength < this.getLength())
      {
-      getNodeAt(newLength).setNext(null);
+      getNodeAt((getLength()-newLength)-1).setNext(null);
       itemCount = newLength;
      }
    }
