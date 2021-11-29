@@ -79,7 +79,7 @@ public class Corpus {
             double similarity = comparitiveWordBag.getSimilarity(bag);
                         
             //Option from the similarities of the two bags
-            Option option = new Option(key, (100-similarity));
+            Option option = new Option(key, 100-(((Math.PI/2)-similarity)*100));
             
             bst.add(option);
         }

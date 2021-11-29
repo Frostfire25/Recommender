@@ -4,10 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/words/Corpus.java</file>
-            <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/driver/Test.java</file>
             <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/words/WordBag.java</file>
             <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/driver/Recommender.java</file>
             <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/driver/Option.java</file>
+            <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/datastructures/dictionary/LinkedDictionary.java</file>
+            <file>file:/C:/Users/Alex/Documents/NetBeansProjects/elguezabal6/src/datastructures/list/LinkedList.java</file>
         </group>
     </open-files>
 </project-private>

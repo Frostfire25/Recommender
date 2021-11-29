@@ -81,9 +81,7 @@ public class WordBag {
         }
         
     }
-    
-    //QUESTION! Do I have to sort the words in the WordBag when finding the Dot Product? And what happens if I have more words? Do I use the larger bag
-    
+        
     /**
      * Returns the similiarty of this WordBag compared to another
      * 
@@ -94,8 +92,8 @@ public class WordBag {
      * @return Theta (degree) of similarty between two word bags
     */
     public double getSimilarity(WordBag wordBag) {        
-        LinkedDictionary<String, Double> smallerBag = (wordVec.getSize() > wordBag.wordVec.getSize()) ? wordVec : wordBag.wordVec;
-        LinkedDictionary<String, Double> largerBag = (wordVec.getSize() < wordBag.wordVec.getSize()) ? wordVec : wordBag.wordVec;
+        LinkedDictionary<String, Double> largerBag = (wordVec.getSize() > wordBag.wordVec.getSize()) ? wordVec : wordBag.wordVec;
+        LinkedDictionary<String, Double> smallerBag = (wordVec.getSize() < wordBag.wordVec.getSize()) ? wordVec : wordBag.wordVec;
         
         //If the sizes are equal we set the values
         if(wordVec.getSize() == wordBag.wordVec.getSize()) {
@@ -103,7 +101,7 @@ public class WordBag {
             largerBag = wordVec;
         }
  
-        return Math.toDegrees(Math.acos((computeDotProduct(largerBag, smallerBag) / computeEuclideanNorm(largerBag, smallerBag))));
+        return Math.acos((computeDotProduct(largerBag, smallerBag) / computeEuclideanNorm(largerBag, smallerBag)));
     }
     
    
